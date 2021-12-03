@@ -1,0 +1,1 @@
+[{"id": "std1000", "first_name": "John", "last_name": "Doe", "semester": 3, "courses": ["Introduction to Algorithms", "Data Structures 1", "Databases"]}, {"id": "std1001", "first_name": "Nick", "last_name": "Green", "semester": "3", "courses": ["Networks", "Artificial Intelligence"]}]
