@@ -31,7 +31,7 @@ class Node:
         returned_string = f"{self.value} -> "
         if self.has_neighbors():
             for neighboor in self.neighbors:
-                returned_string += f"{neighboor.value} -> "  
+                returned_string += f"{neighboor[0].value} -> "  
      
         returned_string += "None"     
         return returned_string
@@ -63,13 +63,13 @@ class Graph:
 
 
     '''Add a new edge between two nodes'''
-    def add_edge(self, value1, value2):
+    def add_edge(self, value1, value2, weight=1):
         node1 = self.find_node(value1)        
         node2 = self.find_node(value2)
 
         if (node1 is not None) and (node2 is not None):
-            node1.add_neighboor(node2)
-            node2.add_neighboor(node1)
+            node1.add_neighboor((node2, weight))
+            node2.add_neighboor((node1, weight))
         else:
             print("Error: One or more nodes were not found")
 
@@ -85,7 +85,7 @@ class Graph:
         node_two = self.find_node(node_two)
 
         for neighboor in node_one.neighbors:
-            if neighboor.value == node_two.value:
+            if neighboor[0].value == node_two.value:
                 return True
         return False
 
